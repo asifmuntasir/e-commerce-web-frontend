@@ -1,10 +1,9 @@
 import React from 'react';
+import HeroSection from './SubComponents/HeroSection';
 
 const About = () => {
     return (
-        <div>
-            This is about page
-        </div>
+        <HeroSection name={'Googly Ecommerce'} />
     );
 }
 

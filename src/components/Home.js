@@ -1,18 +1,11 @@
 import React from 'react';
-import styled from 'styled-components';
+import HeroSection from './SubComponents/HeroSection';
 
 
 const Home = () => {
     return (
-        <Wrapper className='test'>
-            This is Home page!
-        </Wrapper>
+        <HeroSection name={'Googly Store'} />
     );
 }
-
-const Wrapper = styled.section`
-    font-size: 20px;
-    height: 100vh;
-`;
 
 export default Home;
