@@ -11,8 +11,8 @@ const Home = () => {
 }
 
 const Wrapper = styled.section`
-    background-color: ${({ theme }) => theme.colors.bg};
-    width: 30%;
+    font-size: 20px;
+    height: 100vh;
 `;
 
 export default Home;

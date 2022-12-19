@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import { FiShoppingCart } from 'react-icons/fi';
@@ -6,42 +6,56 @@ import { CgClose, CgMenu } from 'react-icons/cg';
 
 
 const Navbar = () => {
+
+  const [menuIcon, setMenuIcon] = useState();
+
+
   return (
     <Nav>
-      <div className="navbar">
+      <div className={menuIcon ? "navbar active" : "navabr"}>
         <ul className="navbar-lists">
           <li>
             <NavLink
               to={'/'}
-              className="navbar-link home-link">
+              className="navbar-link home-link"
+              onClick={() => setMenuIcon(false)}
+            >
               Home
             </NavLink>
           </li>
           <li>
             <NavLink
               to={'/about'}
-              className="navbar-link">
+              className="navbar-link"
+              onClick={() => setMenuIcon(false)}
+            >
               About
             </NavLink>
           </li>
           <li>
             <NavLink
               to={'/products'}
-              className="navbar-link">
+              className="navbar-link"
+              onClick={() => setMenuIcon(false)}
+            >
               Products
             </NavLink>
           </li>
           <li>
             <NavLink
               to={'/contact'}
-              className="navbar-link">
+              className="navbar-link"
+              onClick={() => setMenuIcon(false)}
+            >
               Contact
             </NavLink>
           </li>
           <li>
             <NavLink
               to={'/cart'}
-              className="navbar-link cart-trolley--link">
+              className="navbar-link cart-trolley--link"
+              onClick={() => setMenuIcon(false)}
+            >
               <FiShoppingCart className='cart-trolley' />
               <span className='cart-total--item'> 5 </span>
             </NavLink>
@@ -51,8 +65,16 @@ const Navbar = () => {
         {/* Responsive Navabr */}
 
         <div className="mobile-navbar-btn">
-          <CgMenu name='menu-outline' className='mobile-nav-icon' />
-          <CgClose name='close-outline' className='mobile-nav-icon close-outline' />
+          <CgMenu
+            name='menu-outline'
+            className='mobile-nav-icon'
+            onClick={() => setMenuIcon(true)}
+          />
+          <CgClose
+            name='close-outline'
+            className='mobile-nav-icon close-outline'
+            onClick={() => setMenuIcon(false)}
+          />
         </div>
 
       </div>
@@ -128,6 +150,7 @@ const Nav = styled.nav`
         display: inline-block;
         z-index: 9999;
         border: ${({ theme }) => theme.colors.black};
+
         .mobile-nav-icon {
           font-size: 4.2rem;
           color: ${({ theme }) => theme.colors.black};
