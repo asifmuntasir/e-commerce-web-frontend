@@ -5,64 +5,64 @@ import { Button } from '../styles/Button';
 import { FaFacebook, FaYoutube, FaGithub } from 'react-icons/fa';
 
 const Footer = () => {
-    return (
-        <Wrapper>
-            <section className="contact-short">
-                <div className="grid grid-two-column">
-                    <div>
-                        <h3>Ready to get started</h3>
-                        <h3>Talk to us today</h3>
-                    </div>
-                    <div>
-                        <Button>
-                            <NavLink to={'/contact'}>Get Started</NavLink>
-                        </Button>
-                    </div>
-                </div>
-            </section>
+  return (
+    <Wrapper>
+      <section className="contact-short">
+        <div className="grid grid-two-column">
+          <div>
+            <h3>Ready to get started</h3>
+            <h3>Talk to us today</h3>
+          </div>
+          <div>
+            <Button>
+              <NavLink to={'/contact'}>Get Started</NavLink>
+            </Button>
+          </div>
+        </div>
+      </section>
 
-            {/* Main Footer */}
-            <Footer>
-                <div className="container grid grid-four-column">
-                    <div className="footer-about">
-                        <h3>Googly Tech</h3>
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
-                    </div>
-                    <div className="footer-subscribe">
-                        <h3>Subscribe to get important updates</h3>
-                        <input type="email" placeholder='your e-mail' />
-                        <input type="submit" value={'subscribe'} />
-                    </div>
+      {/* Main Footer */}
+      <footer>
+        <div className="container grid grid-four-column">
+          <div className="footer-about">
+            <h3>Googly Tech</h3>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+          </div>
+          <div className="footer-subscribe">
+            <h3>Subscribe to get important updates</h3>
+            <input type="email" placeholder='your e-mail' />
+            <input type="submit" value={'subscribe'} />
+          </div>
 
-                    <div className="footer-social">
-                        <h3>follow us</h3>
-                        <div className="footer-social--icons">
-                            <div><FaFacebook /></div>
-                            <div><FaGithub /></div>
-                            <div><FaYoutube /></div>
-                        </div>
-                    </div>
+          <div className="footer-social">
+            <h3>follow us</h3>
+            <div className="footer-social--icons">
+              <div className='icons'><FaFacebook /></div>
+              <div className='icons'><FaGithub /></div>
+              <div className='icons'><FaYoutube /></div>
+            </div>
+          </div>
 
-                    <div className="footer-contact">
-                        <h3>Call Us</h3>
-                        <a href="tel:564681225648">+88 01787118444</a>
-                    </div>
-                </div>
+          <div className="footer-contact">
+            <h3>Call Us</h3>
+            <a href="tel:564681225648">+88 01787118444</a>
+          </div>
+        </div>
 
-                {/* Bottom Footer */}
-                <div className="footer-bottom--section">
-                    <hr />
-                    <div className="container grid grid-two-column">
-                        <p>@{new Date().getFullYear()} GameScript. All Rights Reserved</p>
-                    </div>
-                    <div>
-                        <p>PRIVACY POLICY</p>
-                        <p>TERMS & CONDITION</p>
-                    </div>
-                </div>
-            </Footer>
-        </Wrapper>
-    );
+        {/* Bottom Footer */}
+        <div className="footer-bottom--section">
+          <hr />
+          <div className="container grid grid-two-column">
+            <p>@{new Date().getFullYear()} GameScript. All Rights Reserved</p>
+          </div>
+          <div>
+            <p>PRIVACY POLICY</p>
+            <p>TERMS & CONDITION</p>
+          </div>
+        </div>
+      </footer>
+    </Wrapper>
+  );
 }
 
 const Wrapper = styled.section`
