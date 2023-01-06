@@ -22,7 +22,25 @@ const ProductReducer = (state, action) => {
             isLoading: false,
             isError: true
         }
-    } else {
+    } else if (type === 'SET_SINGLE_LOADING') {
+        return {
+            ...state,
+            isSingleLoading: true
+        }
+    } else if (type === 'SET_SINGLE_PRODUCT') {
+        return {
+            ...state,
+            isSingleLoading: false,
+            singleProduct: payload
+        }
+    } else if (type === 'SET_SINGLE_ERROR') {
+        return {
+            ...state,
+            isSingleLoading: false,
+            isError: true
+        }
+    }
+    else {
         return state;
     }
 }
