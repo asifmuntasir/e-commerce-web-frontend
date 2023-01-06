@@ -14,13 +14,21 @@ const Product = ({ id, name, image, price, category }) => {
                     <div className="card-data-flex">
                         <h3>{name}</h3>
                         <p className="card-data--price">
-                            {price}
+                            <FormatPrice price={price} />
                         </p>
                     </div>
                 </div>
             </div>
         </NavLink>
     );
+}
+
+const FormatPrice = ({ price }) => {
+    return Intl.NumberFormat('en-BD', {
+        style: "currency",
+        currency: "BDT",
+        maximumFractionDigits: 2
+    }).format(price / 100);
 }
 
 export default Product;
