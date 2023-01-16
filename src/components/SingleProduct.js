@@ -2,44 +2,116 @@ import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import { useProductContext } from '../context/ProductContext';
+import MyImage from './SubComponents/MyImage';
+import PageNavigation from './SubComponents/PageNavigation';
+import { Container } from '../styles/Container';
+import FormatPrice from './SubComponents/FormatPrice';
+import { TbReplace, TbTruckDelivery } from 'react-icons/tb';
+import { MdSecurity } from 'react-icons/md';
 
 
 const API = "https://api.pujakaitem.com/api/products";
 
 const SingleProduct = () => {
 
-    const {
-        getSingleProduct,
-        isSingleLoading,
-        singleProduct
-    } = useProductContext();
+  const {
+    getSingleProduct,
+    isSingleLoading,
+    singleProduct
+  } = useProductContext();
 
-    // console.log(singleProduct);
+  // console.log(singleProduct);
 
-    const { id } = useParams();
+  const { id } = useParams();
 
-    const {
-        id: canada,
-        name,
-        companyName,
-        price,
-        description,
-        category,
-        stock,
-        stars,
-        reviews
-    } = singleProduct
+  const {
+    id: canada,
+    name,
+    company,
+    price,
+    description,
+    category,
+    stock,
+    stars,
+    reviews,
+    image
+  } = singleProduct
 
 
-    useEffect(() => {
-        getSingleProduct(`${API}?id=${id}`);
-    }, []);
+  useEffect(() => {
+    getSingleProduct(`${API}?id=${id}`);
+  }, []);
 
-    return (
-        <Wrapper>
-            <h1>Single Product {name}</h1>
-        </Wrapper>
-    );
+  if (isSingleLoading) {
+    return <div className="page_loading">
+      Loading...
+    </div>
+  }
+
+  return (
+    <Wrapper>
+      <PageNavigation title={name} />
+      <Container className="container">
+        <div className="grid grid-two-column">
+          {/* product iamge */}
+          <div className="product_image">
+            <MyImage imgs={image} />
+          </div>
+
+          {/* Product Data */}
+          <div className="product-data">
+            <h2>{name}</h2>
+            <p>{stars}</p>
+            <p>{reviews} reviews</p>
+            <p className="product-data-price">
+              MRP:
+              <del>
+                <FormatPrice price={price + 250000} />
+              </del>
+            </p>
+            <p className="product-data-price product-data-real-price">
+              Deal of the Day: <FormatPrice price={price} />
+            </p>
+            <p>{description}</p>
+
+            <div className="product-data-warranty">
+              <div className="product-warranty-data">
+                <TbTruckDelivery className="warranty-icon" />
+                <p>Free Delivery</p>
+              </div>
+
+              <div className="product-warranty-data">
+                <TbReplace className="warranty-icon" />
+                <p>30 Days Replacement</p>
+              </div>
+
+              <div className="product-warranty-data">
+                <TbTruckDelivery className="warranty-icon" />
+                <p>GO Delivery</p>
+              </div>
+
+              <div className="product-warranty-data">
+                <MdSecurity className="warranty-icon" />
+                <p>2 Year Warranty</p>
+              </div>
+            </div>
+
+            <div className="product-data-info">
+              <p>
+                Available: <span>{stock > 0 ? 'In Stock' : 'Not Available'}</span>
+              </p>
+              <p>
+                ID: <span>{id}</span>
+              </p>
+              <p>
+                Brand: <span>{company}</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </Container>
+    </Wrapper>
+  );
 }
 
 

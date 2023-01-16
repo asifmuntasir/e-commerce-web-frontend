@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import FormatPrice from './FormatPrice';
 
 const Product = ({ id, name, image, price, category }) => {
     return (
@@ -23,12 +24,12 @@ const Product = ({ id, name, image, price, category }) => {
     );
 }
 
-const FormatPrice = ({ price }) => {
-    return Intl.NumberFormat('en-BD', {
-        style: "currency",
-        currency: "BDT",
-        maximumFractionDigits: 2
-    }).format(price / 100);
-}
+// const FormatPrice = ({ price }) => {
+//     return Intl.NumberFormat('en-BD', {
+//         style: "currency",
+//         currency: "BDT",
+//         maximumFractionDigits: 2
+//     }).format(price / 100);
+// }
 
 export default Product;
