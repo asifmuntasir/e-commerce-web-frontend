@@ -1,5 +1,5 @@
 # Title-Info
-> MERN E-commerce practice project. I'm working on it and it's only for frontend. 🙏👆
+> MERN E-commerce practice project. I'm working on it and it's only for frontend. 🙏👆🤏
 
 <!-- > I have added a gif to see live of my porject. -->
 
