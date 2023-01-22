@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Products = () => {
+const FilterSection = () => {
     return (
         <div>
-            Product
+            Filter
         </div>
     );
 }
 
-export default Products;
+export default FilterSection;

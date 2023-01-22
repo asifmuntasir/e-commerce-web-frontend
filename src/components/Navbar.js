@@ -34,7 +34,7 @@ const Navbar = () => {
           </li>
           <li>
             <NavLink
-              to={'/products'}
+              to={'/all-products'}
               className="navbar-link"
               onClick={() => setMenuIcon(false)}
             >
