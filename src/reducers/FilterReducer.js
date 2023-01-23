@@ -8,7 +8,13 @@ const filterreducer = (state, action) => {
             filter_products: [...payload],
             all_products: [...payload]
         }
-    } else {
+    } else if (type === 'SET_GRID_VIEW') {
+        return {
+            ...state,
+            grid_view: true
+        }
+    }
+    else {
         return state;
     }
 }

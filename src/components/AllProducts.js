@@ -9,7 +9,7 @@ import SortProduct from './SubComponents/SortProduct';
 const AllProducts = () => {
 
   const { filter_products } = useFilterContext();
-  console.log(filter_products);
+  // console.log(filter_products);
 
   return (
     <Wrapper>
