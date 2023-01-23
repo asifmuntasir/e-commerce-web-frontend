@@ -1,11 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useFilterContext } from '../context/FilterContext';
 import FilterSection from './SubComponents/FilterSection';
 import ProductList from './SubComponents/ProductList';
 import SortProduct from './SubComponents/SortProduct';
 
 
-const Products = () => {
+const AllProducts = () => {
+
+  const { filter_products } = useFilterContext();
+  console.log(filter_products);
+
   return (
     <Wrapper>
       <div className="container grid grid-filter-column">
@@ -39,4 +44,4 @@ const Wrapper = styled.section`
 `;
 
 
-export default Products;
+export default AllProducts;
