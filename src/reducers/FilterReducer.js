@@ -28,6 +28,42 @@ const filterreducer = (state, action) => {
             sorting_value: sort_value
         }
     }
+    else if (type === 'SORTING_PRODUCTS') {
+
+        let sorted_product;
+        let temp1SortProduct = [...payload];
+
+        if (state.sorting_value === 'a-z') {
+            sorted_product = temp1SortProduct.sort((a, b) => {
+                return a.name.localeCompare(b.name);
+            })
+        }
+
+        if (state.sorting_value === 'z-a') {
+            sorted_product = temp1SortProduct.sort((a, b) => {
+                return b.name.localeCompare(b.name);
+            })
+        }
+
+        if (state.sorting_value === 'lowest') {
+            const temp2SortProduct = (a, b) => {
+                return a.price - b.price;
+            }
+            sorted_product = temp1SortProduct.sort(temp2SortProduct);
+        }
+
+        if (state.sorting_value === 'highest') {
+            const temp2SortProduct = (a, b) => {
+                return b.price - a.price;
+            }
+            sorted_product = temp1SortProduct.sort(temp2SortProduct);
+        }
+
+        return {
+            ...state,
+            filter_products: sorted_product
+        }
+    }
     else {
         return state;
     }
