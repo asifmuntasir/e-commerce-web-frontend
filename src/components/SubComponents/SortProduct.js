@@ -6,37 +6,52 @@ import { useFilterContext } from '../../context/FilterContext';
 
 const SortProduct = () => {
 
-    const { filter_products, grid_view, setGridView, setListView } = useFilterContext();
+  const { filter_products,
+    grid_view,
+    setGridView,
+    setListView,
+    sortClick
+  } = useFilterContext();
 
-    return (
-        <Wrapper className='sort-section'>
-            {/* first column */}
-            <div className="sorting-list--grid">
-                <button
-                    className={grid_view ? 'active sort-btn' : 'sort-btn'}
-                    onClick={setGridView}
-                >
-                    <BsFillGridFill className='icon' />
-                </button>
-                <button
-                    className={!grid_view ? 'active sort-btn' : 'sort-btn'}
-                    onClick={setListView}
-                >
-                    <BsList className='icon' />
-                </button>
-            </div>
-            {/* second column */}
-            <div className="products-data">
-                <p>
-                    {filter_products.length} Product Available
-                </p>
-            </div>
-            {/* third column */}
-            <div className="sort-selection">
+  return (
+    <Wrapper className='sort-section'>
+      {/* first column */}
+      <div className="sorting-list--grid">
+        <button
+          className={grid_view ? 'active sort-btn' : 'sort-btn'}
+          onClick={setGridView}
+        >
+          <BsFillGridFill className='icon' />
+        </button>
+        <button
+          className={!grid_view ? 'active sort-btn' : 'sort-btn'}
+          onClick={setListView}
+        >
+          <BsList className='icon' />
+        </button>
+      </div>
 
-            </div>
-        </Wrapper>
-    );
+      {/* second column */}
+      <div className="products-data">
+        <p>
+          {filter_products.length} Product Available
+        </p>
+      </div>
+
+      {/* third column */}
+      <div className="sort-selection">
+        <form action="#">
+          <label htmlFor="sort"></label>
+          <select className='sort-selection--style' onClick={sortClick} name="sort" id="sort">
+            <option value="lowest">Price(lowest)</option>
+            <option value="highest">Price(higest)</option>
+            <option value="a-z">Price(a-z)</option>
+            <option value="z-a">Price(z-a)</option>
+          </select>
+        </form>
+      </div>
+    </Wrapper>
+  );
 }
 
 
