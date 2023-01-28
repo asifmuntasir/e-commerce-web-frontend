@@ -38,17 +38,18 @@ export const FilterContextProvider = ({ children }) => {
     }
 
     // sortClick function
-    const sortClick = () => {
+    const sortClick = (e) => {
+        let eventValue = e.target.value;
         dispatch({
-            type: "GET_SORT_VALUE"
+            type: "GET_SORT_VALUE",
+            payload: eventValue
         });
     }
 
     // sort the product
     useEffect(() => {
         dispatch({
-            type: "SORTING_PRODUCTS",
-            payload: products
+            type: "SORTING_PRODUCTS"
         })
     }, [state.sorting_value]);
 
