@@ -82,6 +82,16 @@ const filterreducer = (state, action) => {
             ...state,
             filter_products: sorted_product
         }
+    } else if (type === "UPDATE_FILTERS_VALUE") {
+        const { name, val } = payload;
+
+        return {
+            ...state,
+            filters: {
+                ...state.filters,
+                [name]: val
+            }
+        }
     }
     else {
         return state;

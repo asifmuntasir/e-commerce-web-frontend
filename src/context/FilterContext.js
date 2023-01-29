@@ -12,7 +12,10 @@ const initialState = {
     filter_products: [],
     all_products: [],
     grid_view: true,
-    sorting_value: "lowest"
+    sorting_value: "lowest",
+    filters: {
+        text: ""
+    }
 }
 
 
@@ -54,6 +57,17 @@ export const FilterContextProvider = ({ children }) => {
     }, [state.sorting_value]);
 
 
+    // Filter section value update
+    const updateFilterValue = (e) => {
+        let name = e.target.name;
+        let val = e.target.value;
+
+        return ({
+            type: "UPDATE_FILTERS_VALUE",
+            payload: { name, val }
+        })
+    }
+
 
     useEffect(() => {
         dispatch({
@@ -63,7 +77,14 @@ export const FilterContextProvider = ({ children }) => {
     }, [products]);
 
 
-    return <FilterContext.Provider value={{ ...state, setGridView, setListView, sortClick }}>
+    return <FilterContext.Provider value={{
+        ...state,
+        setGridView,
+        setListView,
+        sortClick,
+        // updateFilterValue
+    }}
+    >
         {children}
     </FilterContext.Provider>
 }
