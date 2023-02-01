@@ -4,22 +4,37 @@ import { useFilterContext } from '../../context/FilterContext';
 
 const FilterSection = () => {
 
-    const { filters: { text }, updateFilterValue } = useFilterContext();
+  const { filters: { text },
+    all_products,
+    updateFilterValue
+  } = useFilterContext();
 
 
-    return (
-        <Wrapper>
-            <div className="filter-search">
-                <form onSubmit={(e) => e.preventDefault()}>
-                    <input
-                        type="text" name='text'
-                        value={text}
-                        onChange={updateFilterValue}
-                    />
-                </form>
-            </div>
-        </Wrapper>
-    );
+  // To get unique data of each fields
+  const getUniqueData = (data, property) => {
+    let newVal = data.map((curElem) => {
+      return curElem[property];
+    })
+  }
+
+  // unique data
+  const categoryData = getUniqueData(all_products, "category");
+
+  return (
+    <Wrapper>
+      <div className="filter-search">
+        <form onSubmit={(e) => e.preventDefault()}>
+          <input
+            type="text"
+            name="text"
+            placeholder="Search"
+            value={text}
+            onChange={updateFilterValue}
+          />
+        </form>
+      </div>
+    </Wrapper>
+  );
 }
 
 

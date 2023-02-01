@@ -93,6 +93,23 @@ const filterreducer = (state, action) => {
             }
         }
     }
+    else if (type === "FILTER_PRODUTCS") {
+        let { all_products } = state;
+        let temp1Data = [...all_products];
+
+        const { text } = state.filters;
+
+        if (text) {
+            temp1Data = temp1Data.filter((curElem) => {
+                return curElem.name.toLowerCase().includes(text);
+            });
+        }
+
+        return {
+            ...state,
+            filter_products: temp1Data
+        }
+    }
     else {
         return state;
     }
