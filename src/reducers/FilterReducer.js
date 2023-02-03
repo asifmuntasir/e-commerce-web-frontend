@@ -52,29 +52,6 @@ const filterreducer = (state, action) => {
             }
         }
 
-        // if (state.sorting_value === 'a-z') {
-        //     sorted_product = temp1SortProduct.sort((a, b) => {
-        //         return a.name.localeCompare(b.name);
-        //     });
-        // }
-
-        // if (state.sorting_value === 'z-a') {
-        //     sorted_product = temp1SortProduct.sort((a, b) => {
-        //         return b.name.localeCompare(b.name);
-        //     });
-        // }
-
-        // if (state.sorting_value === 'lowest') {
-        //     const temp2SortProduct = (a, b) => {
-        //         return a.price - b.price;
-        //     }
-        // }
-
-        // if (state.sorting_value === 'highest') {
-        //     const temp2SortProduct = (a, b) => {
-        //         return b.price - a.price;
-        //     }
-        // }
 
         sorted_product = temp1SortProduct.sort(temp2SortProduct);
 
@@ -82,14 +59,15 @@ const filterreducer = (state, action) => {
             ...state,
             filter_products: sorted_product
         }
-    } else if (type === "UPDATE_FILTERS_VALUE") {
-        const { name, val } = payload;
+    }
+    else if (type === "UPDATE_FILTERS_VALUE") {
+        const { name, value } = payload;
 
         return {
             ...state,
             filters: {
                 ...state.filters,
-                [name]: val
+                [name]: value
             }
         }
     }
@@ -97,11 +75,29 @@ const filterreducer = (state, action) => {
         let { all_products } = state;
         let temp1Data = [...all_products];
 
-        const { text } = state.filters;
+        const { text, category, company, color } = state.filters;
 
         if (text) {
             temp1Data = temp1Data.filter((curElem) => {
                 return curElem.name.toLowerCase().includes(text);
+            });
+        }
+
+        if (category !== "All") {
+            temp1Data = temp1Data.filter((curElem) => {
+                return curElem.category === category;
+            });
+        }
+
+        if (company !== "All") {
+            temp1Data = temp1Data.filter((curElem) => {
+                return curElem.company.toLowerCase() === company.toLowerCase();
+            });
+        }
+
+        if (color) {
+            temp1Data = temp1Data.filter((curElem) => {
+                return curElem.color.includes(color);
             });
         }
 

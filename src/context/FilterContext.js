@@ -1,7 +1,4 @@
-import { useContext } from "react";
-import { useReducer } from "react";
-import { useEffect } from "react";
-import { createContext } from "react";
+import { useContext, useReducer, useEffect, createContext } from "react";
 import reducer from "../reducers/FilterReducer";
 import { useProductContext } from './ProductContext';
 
@@ -15,7 +12,10 @@ const initialState = {
     sorting_value: "lowest",
     filters: {
         text: "",
-    }
+        category: "all",
+        company: "all",
+        color: "all",
+    },
 }
 
 
@@ -53,12 +53,12 @@ export const FilterContextProvider = ({ children }) => {
     // Filter section update function
     const updateFilterValue = (e) => {
         let name = e.target.name;
-        let val = e.target.value;
+        let value = e.target.value;
 
         return ({
             type: "UPDATE_FILTERS_VALUE",
-            payload: { name, val }
-        })
+            payload: { name, value }
+        });
     }
 
 
@@ -66,11 +66,11 @@ export const FilterContextProvider = ({ children }) => {
     useEffect(() => {
         dispatch({
             type: "FILTER_PRODUTCS"
-        })
+        });
 
         dispatch({
             type: "SORTING_PRODUCTS"
-        })
+        });
     }, [products, state.sorting_value, state.filters]);
 
 

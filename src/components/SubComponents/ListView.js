@@ -9,38 +9,38 @@ const ListView = ({ products }) => {
 
 
 
-    return (
-        <Wrapper>
-            <div className="container grid">
-                {
-                    products.map((curElem) => {
-                        const { id, name, image, price, description } = curElem;
-                        return (
-                            <div className="card grid grid-two-column">
-                                <figure>
-                                    <img src={image} alt={name} />
-                                </figure>
+  return (
+    <Wrapper>
+      <div className="container grid">
+        {
+          products.map((curElem) => {
+            const { id, name, image, price, description } = curElem;
+            return (
+              <div className="card grid grid-two-column" key={id}>
+                <figure>
+                  <img src={image} alt={name} />
+                </figure>
 
-                                <div className='card-data'>
-                                    <h3>{name}</h3>
-                                    <p>
-                                        <FormatPrice price={price} />
-                                    </p>
-                                    <p>
-                                        {description.slice(0, 76)}..
-                                    </p>
+                <div className='card-data' key={id}>
+                  <h3>{name}</h3>
+                  <p>
+                    <FormatPrice price={price} key={id} />
+                  </p>
+                  <p>
+                    {description.slice(0, 76)}..
+                  </p>
 
-                                    <NavLink className="btn-main" to={`/singleproduct/${id}`}>
-                                        <Button className='btn'>Read More</Button>
-                                    </NavLink>
-                                </div>
-                            </div>
-                        )
-                    })
-                }
-            </div>
-        </Wrapper>
-    );
+                  <NavLink className="btn-main" to={`/singleproduct/${id}`}>
+                    <Button className='btn'>Read More</Button>
+                  </NavLink>
+                </div>
+              </div>
+            )
+          })
+        }
+      </div>
+    </Wrapper>
+  );
 }
 
 
