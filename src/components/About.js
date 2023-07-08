@@ -8,7 +8,7 @@ const About = () => {
 
     return (
         <>
-            < HeroSection name={'Googly Ecommerce'} />
+            < HeroSection name={'dotSTORE Ecommerce'} />
         </>
     );
 }

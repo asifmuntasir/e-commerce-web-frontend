@@ -8,7 +8,7 @@ import Trusted from './SubComponents/Trusted';
 const Home = () => {
     return (
         <>
-            <HeroSection name={'Googly Store'} />
+            <HeroSection name={'dotSTORE'} />
             <FeatureProducts />
             <Services />
             <Trusted />
