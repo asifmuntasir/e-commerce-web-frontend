@@ -65,7 +65,7 @@ export const FilterContextProvider = ({ children }) => {
     // sort and update filter product
     useEffect(() => {
         dispatch({
-            type: "FILTER_PRODUTCS"
+            type: "FILTER_PRODUCTS"
         });
 
         dispatch({

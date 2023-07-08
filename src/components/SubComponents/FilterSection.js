@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useFilterContext } from '../../context/FilterContext';
+// import { FaCheck } from "react-icons/fa";
 
 const FilterSection = () => {
 
@@ -21,7 +22,7 @@ const FilterSection = () => {
       newVal = newVal.flat();
     }
 
-    return (newVal = ["All", ...new Set(newVal)]);
+    return (newVal = ["all", ...new Set(newVal)]);
     // console.log(newVal);
   }
 

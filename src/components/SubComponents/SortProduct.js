@@ -6,7 +6,8 @@ import { useFilterContext } from '../../context/FilterContext';
 
 const SortProduct = () => {
 
-  const { filter_products,
+  const {
+    filter_products,
     grid_view,
     setGridView,
     setListView,
