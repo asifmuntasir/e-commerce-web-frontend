@@ -4,40 +4,40 @@ import styled from 'styled-components';
 import { Button } from '../../styles/Button';
 
 const HeroSection = ({ name }) => {
-    return (
-        <Wrapper>
-            <div className="container">
-                <div className="grid grid-two-column">
-                    <div className="hero-section-data">
-                        <p className="intro-data">
-                            Welcome to
-                        </p>
-                        <h1>{name}</h1>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias
-                            atque temporibus veniam doloribus libero ad error omnis voluptates
-                            animi! Suscipit sapiente.
-                        </p>
-                        <NavLink>
-                            <Button>
-                                Shop Now
-                            </Button>
-                        </NavLink>
-                    </div>
-                    {/* Home page Image */}
-                    <div className="hero-section-image">
-                        <figure>
-                            <img
-                                src="images/hero.jpg"
-                                alt="hero section image"
-                                className='img-style'
-                            />
-                        </figure>
-                    </div>
-                </div>
-            </div>
-        </Wrapper>
-    );
+  return (
+    <Wrapper>
+      <div className="container">
+        <div className="grid grid-two-column">
+          <div className="hero-section-data">
+            <p className="intro-data">
+              Welcome to
+            </p>
+            <h1>{name}</h1>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias
+              atque temporibus veniam doloribus libero ad error omnis voluptates
+              animi! Suscipit sapiente.
+            </p>
+            <NavLink>
+              <Button>
+                Shop Now
+              </Button>
+            </NavLink>
+          </div>
+          {/* Home page Image */}
+          <div className="hero-section-image">
+            <figure>
+              <img
+                src="images/supermarket.jpg"
+                alt="heroSectionImage"
+                className='img-style'
+              />
+            </figure>
+          </div>
+        </div>
+      </div>
+    </Wrapper>
+  );
 }
 
 const Wrapper = styled.section`

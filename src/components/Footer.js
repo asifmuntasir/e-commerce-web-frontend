@@ -25,7 +25,7 @@ const Footer = () => {
       <footer>
         <div className="container grid grid-four-column">
           <div className="footer-about">
-            <h3>Googly Tech</h3>
+            <h3>dotSTORE Tech</h3>
             <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
           </div>
           <div className="footer-subscribe">
@@ -55,7 +55,7 @@ const Footer = () => {
           <div className="container grid grid-two-column">
             <p>@{new Date().getFullYear()} GameScript. All Rights Reserved</p>
           </div>
-          <div>
+          <div className='container grid grid-two-column'>
             <p>PRIVACY POLICY</p>
             <p>TERMS & CONDITION</p>
           </div>
@@ -116,6 +116,11 @@ const Wrapper = styled.section`
       height: 0.1px;
     }
   }
+
+  // .footer-bottom--section:last-child {
+  //   display: flex;
+  //   justify-content: space-between;
+  // }
   @media (max-width: ${({ theme }) => theme.media.mobile}) {
     .contact-short {
       max-width: 80vw;
