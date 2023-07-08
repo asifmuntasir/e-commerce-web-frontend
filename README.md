@@ -5,13 +5,14 @@
 
 
 # ScreenShots
-<!-- ![](tanechdot_blog.gif) -->
->Comming Soon
+![](Screenshot.png)
+<!-- >Comming Soon -->
 
 ## Built With
 - CSS
 - ReactJS
 - React Router
+- Context API
 
 ## Live Demo
 <!-- For the link to the live demo, [Click here](https://tanechdot-blog.herokuapp.com/) -->
